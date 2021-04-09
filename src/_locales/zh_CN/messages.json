@@ -1,0 +1,66 @@
+{
+    "appName": {
+        "message": "Google Meet的同声传译",
+        "description": "Name of app"
+    },
+    "appDesc": {
+        "message": "为听者和译者提供的一种使两种语言之间的同声传译更容易的工具。",
+        "description": "Description of the application, displayed at chrome://extensions and extension description."
+    },
+    "urlInputDesc": {
+        "message": "输入口译会议的URL。",
+        "description": "Description of url input textbox in popup action."
+    },
+    "startInterpretingButton": {
+        "message": "开始",
+        "description": "Text on button which initiates all the controls."
+    },
+    "iAmAnInterpreter": {
+        "message": "我是口译员",
+        "description": "The label for the checkbox in the popup menu."
+    },
+    "errorValidLink": {
+        "message": "输入有效的Google Meet URL。",
+        "description": "Error message for entering a non- Google Meet link."
+    },
+    "errorNotGoogleMeet": {
+        "message": "先加入Google Meet，再发起。",
+        "description": "Error message for trying to launch while not in meet.google.com tab."
+    },
+    "mainChannel": {
+        "message": "主频道",
+        "description": "Label for main channel in the control panel. Keep it short."
+    },
+    "interpChannel": {
+        "message": "翻译通道",
+        "description": "Label for interpretation channel in the control panel. Keep it short."
+    },
+    "inputUrlAria": {
+        "message": "在这里输入网址。格式： h t t p s : / / meet dot google dot com / 会议编号",
+        "description": "Aria label for the url input text box."
+    },
+    "startBtnAria": {
+        "message": "点击开始。",
+        "description": "Aria label for the start button in popup."
+    },
+    "iAmAnInterpreterAria": {
+        "message": "点击使用解释器功能。",
+        "description": "Aria label for activating interpreter functions."
+    },
+    "toggleScreen": {
+        "message": "切换口译屏幕",
+        "description": "Aria label for the button toggling interpretation screen."
+    },
+    "toggleMic": {
+        "message": "拨动口译员麦克风",
+        "description": "Aria label for the button toggling interpretors microphone."
+    },
+    "mainVolControl": {
+        "message": "主通道的音量控制",
+        "description": "Aria label for the main channel volume control."
+    },
+    "intrVolControl": {
+        "message": "解释器通道的音量控制",
+        "description": "Aria label for the interpreter channel volume control."
+    }
+}

@@ -1,0 +1,196 @@
+.interpreterMain {
+    position: absolute;
+    width: 700px;
+    height: 500px;
+    bottom: 141px;
+    right: 1px;
+    resize: both;
+    opacity: 0.95;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+::-webkit-resizer {
+    border: 2px solid black;
+    background: red;
+    box-shadow: 0 0 5px 5px blue;
+    outline: 2px solid yellow;
+  }
+
+.controllerContainer {
+    position: absolute;
+    width: 340px;
+    height: 45px;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 1);
+    bottom: 85px;
+    right: 0px;
+    border-top-left-radius: 8px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.channelControl {
+    display: block;
+    width: 300px;
+    font-size: 10px;
+}
+
+.channelControl label {
+    width: 100px;
+    margin-right: 5px;
+    margin-left: 10px;
+    font-weight: 500;
+    color: #3c4043;
+    text-align: center;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+}
+
+.mainChannelControl, .intrChannelControl {
+    /* margin-left: auto;
+    margin-right: auto; */
+    width: 300px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.mainChannelControl {
+    margin-bottom: 5px;
+}
+
+#volSliderMain, #volSliderInterp {
+    height: 5px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+      overflow: hidden;
+      width: 135px;
+      -webkit-appearance: none;
+      background-color: #d0d0d0;
+    }
+    
+    input[type='range']::-webkit-slider-runnable-track {
+      height: 10px;
+      -webkit-appearance: none;
+      color: white;
+      margin-top: -1px;
+    }
+    
+    input[type='range']::-webkit-slider-thumb {
+      width: 10px;
+      -webkit-appearance: none;
+      height: 10px;
+      cursor: ew-resize;
+      background: #000;
+      box-shadow: -80px 0 0 80px rgb(0, 136, 255);
+    }
+}
+
+/* Volume Icon Styling */
+
+.vol-icon {
+    width: 15px;
+    margin-left: 15px;
+}
+
+/* Mic Styling */
+
+.object {
+  display: block;
+  width: 20px;
+  margin-right: 15px;
+  position: relative;
+  top: 0;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+    border: 1px solid rgba(32,33,36,0.149);
+	background: white;
+	/* box-shadow: 0px 0px 80px #0084F9; */
+	position: absolute;
+    top: -10px;
+    right: 1px;
+}
+
+#screenToggle {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: white;
+	position: absolute;
+    display: none;
+}
+
+#micSwitchInterp {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: white;
+	position: absolute;
+    display: none;
+}
+
+#screenToggle:hover {
+    background-color: #0084F9 !important;
+    cursor: pointer;
+}
+
+#micSwitchInterp:hover {
+    background-color: #0084F9 !important;
+    cursor: pointer;
+}
+
+.mic-icon {
+    height: 10px;
+	position: relative;
+    top: -15px;
+    right: 16px;
+	margin: 21px;
+}
+
+/* Volume icon Styling */
+
+.svg-icon {
+	height: 10px;
+	position: relative;
+    top: -15px;
+    right: 16px;
+	margin: 21px;
+}
+
+.divider {
+    width:1px; 
+    height:20px; 
+    background-color:#f1f3f4;
+}
+  
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+    fill: black;
+}
+  
+.svg-icon circle {
+    stroke: #4691f6;
+    stroke-width: 1;
+}
+
+/* Loading animated icon styling */
+
+.loading-icon {
+    height: 15px;
+    width: 15px;
+    position: relative;
+}

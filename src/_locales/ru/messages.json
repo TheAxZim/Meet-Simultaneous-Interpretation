@@ -1,0 +1,66 @@
+{
+    "appName": {
+        "message": "Синхронный перевод для Google Meet",
+        "description": "Name of app"
+    },
+    "appDesc": {
+        "message": "Инструмент, облегчающий синхронный перевод между двумя языками для слушателей и переводчиков.",
+        "description": "Description of the application, displayed at chrome://extensions and extension description."
+    },
+    "urlInputDesc": {
+        "message": "Введите ссылку на встречу с переводчиком.",
+        "description": "Description of url input textbox in popup action."
+    },
+    "startInterpretingButton": {
+        "message": "Начать",
+        "description": "Text on button which initiates all the controls."
+    },
+    "iAmAnInterpreter": {
+        "message": "Я переводчик",
+        "description": "The label for the checkbox in the popup menu."
+    },
+    "errorValidLink": {
+        "message": "Введите действующий URL Google Meet.",
+        "description": "Error message for entering a non- Google Meet link."
+    },
+    "errorNotGoogleMeet": {
+        "message": "Присоединяйтесь сначала к Google Meet, а затем запустите.",
+        "description": "Error message for trying to launch while not in meet.google.com tab."
+    },
+    "mainChannel": {
+        "message": "Главный канал",
+        "description": "Label for main channel in the control panel. Keep it short."
+    },
+    "interpChannel": {
+        "message": "Канал переводов",
+        "description": "Label for interpretation channel in the control panel. Keep it short."
+    },
+    "inputUrlAria": {
+        "message": "Введите URL здесь. Формат: h t t p s : / / meet dot google dot com / идентификатор встречи",
+        "description": "Aria label for the url input text box."
+    },
+    "startBtnAria": {
+        "message": "Нажмите, чтобы начать.",
+        "description": "Aria label for the start button in popup."
+    },
+    "iAmAnInterpreterAria": {
+        "message": "Нажмите, чтобы использовать функции интерпретатора.",
+        "description": "Aria label for activating interpreter functions."
+    },
+    "toggleScreen": {
+        "message": "Экран интерпретации переключателей",
+        "description": "Aria label for the button toggling interpretation screen."
+    },
+    "toggleMic": {
+        "message": "Микрофон-переводчик Toggle Микрофон-переводчик",
+        "description": "Aria label for the button toggling interpretors microphone."
+    },
+    "mainVolControl": {
+        "message": "Регулирование громкости для главного канала",
+        "description": "Aria label for the main channel volume control."
+    },
+    "intrVolControl": {
+        "message": "Регулирование громкости для канала переводчика",
+        "description": "Aria label for the interpreter channel volume control."
+    }
+}

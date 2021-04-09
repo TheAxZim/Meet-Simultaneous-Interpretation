@@ -1,0 +1,96 @@
+body{
+    margin: 0;
+    width: 300px;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.container > img {
+    margin-top: 15px;
+}
+
+.container > p {
+    margin: 0px auto 5px auto;
+    color: #666;
+}
+
+button {
+    outline: none;
+    font-size: 12px;
+    font-weight: 700;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+label {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#urlInput {
+    height: 20px;
+    width: 80%;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+#message {
+    margin: 0 auto 10px auto;
+    text-align: center;
+    width: 100%;
+    font-size: 11px;
+}
+
+#message::after {
+    border-bottom: 1px solid black;
+}
+
+#startInterpretation {
+    height: 30px;
+    width: 80%;
+    color: white;
+    background-color: #24a0ed;
+    margin-bottom: 15px;
+}
+
+#startInterpretation:hover {
+    background-color: #1080c6;
+}
+
+button.current {
+    box-shadow: 0 0 0 2px white,
+                0 0 0 4px black;
+}
+
+#interpreterSelectBox {
+    border: 1px dashed rgb(234, 234, 234);
+    width: 80%;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 5px 10px 10px 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+#interpreterSelectBox:hover {
+    background-color: rgb(245, 245, 245);
+    border-color: black;
+}
+
+input[type="checkbox"] {
+    height: 15px;
+    width: 15px;
+    margin-right: 10px;
+    position: relative;
+    top:4px;
+}

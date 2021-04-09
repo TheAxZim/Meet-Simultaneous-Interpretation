@@ -1,0 +1,66 @@
+{
+    "appName": {
+        "message": "Simultandolmetschen für Google Meet",
+        "description": "Name of app"
+    },
+    "appDesc": {
+        "message": "Ein Werkzeug, um das Simultandolmetschen zwischen zwei Sprachen zu erleichtern, für Zuhörer und Dolmetscher.",
+        "description": "Description of the application, displayed at chrome://extensions and extension description."
+    },
+    "urlInputDesc": {
+        "message": "Link zur Dolmetschersitzung eingeben.",
+        "description": "Description of url input textbox in popup action."
+    },
+    "startInterpretingButton": {
+        "message": "Start",
+        "description": "Text on button which initiates all the controls."
+    },
+    "iAmAnInterpreter": {
+        "message": "Ich bin ein Dolmetscher",
+        "description": "The label for the checkbox in the popup menu."
+    },
+    "errorValidLink": {
+        "message": "Geben Sie einen gültigen Google Meet-Link ein.",
+        "description": "Error message for entering a non- Google Meet link."
+    },
+    "errorNotGoogleMeet": {
+        "message": "Nehmen Sie zuerst an Google Meet teil und starten Sie dann.",
+        "description": "Error message for trying to launch while not in meet.google.com tab."
+    },
+    "mainChannel": {
+        "message": "Hauptkanal",
+        "description": "Label for main channel in the control panel. Keep it short."
+    },
+    "interpChannel": {
+        "message": "Übersetzung Kanal",
+        "description": "Label for interpretation channel in the control panel. Keep it short."
+    },
+    "inputUrlAria": {
+        "message": "URL hier eingeben. Format: h t t p s : / / meet dot google dot com / Meeting-ID",
+        "description": "Aria label for the url input text box."
+    },
+    "startBtnAria": {
+        "message": "Klicken Sie, um zu beginnen.",
+        "description": "Aria label for the start button in popup."
+    },
+    "iAmAnInterpreterAria": {
+        "message": "Klicken Sie auf , um Interpreterfunktionen zu verwenden.",
+        "description": "Aria label for activating interpreter functions."
+    },
+    "toggleScreen": {
+        "message": "Bildschirm Interpretation umschalten",
+        "description": "Aria label for the button toggling interpretation screen."
+    },
+    "toggleMic": {
+        "message": "Dolmetschermikrofon umschalten",
+        "description": "Aria label for the button toggling interpretors microphone."
+    },
+    "mainVolControl": {
+        "message": "Lautstärkeregler für Hauptkanal",
+        "description": "Aria label for the main channel volume control."
+    },
+    "intrVolControl": {
+        "message": "Lautstärkeregler für Interpreterkanal",
+        "description": "Aria label for the interpreter channel volume control."
+    }
+}

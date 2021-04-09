@@ -1,0 +1,66 @@
+{
+    "appName": {
+        "message": "Interpretación simultánea para Google Meet",
+        "description": "Name of app"
+    },
+    "appDesc": {
+        "message": "Una herramienta que facilita la interpretación simultánea entre dos idiomas, tanto para los oyentes como para los intérpretes.",
+        "description": "Description of the application, displayed at chrome://extensions and extension description."
+    },
+    "urlInputDesc": {
+        "message": "Introduzca la URL de interpretación.",
+        "description": "Description of url input textbox in popup action."
+    },
+    "startInterpretingButton": {
+        "message": "Canal de interpretación abierto",
+        "description": "Text on button which initiates all the controls."
+    },
+    "iAmAnInterpreter": {
+        "message": "Soy intérprete",
+        "description": "The label for the checkbox in the popup menu."
+    },
+    "errorValidLink": {
+        "message": "Introduce una URL válida de Google Meet.",
+        "description": "Error message for entering a non- Google Meet link."
+    },
+    "errorNotGoogleMeet": {
+        "message": "Únete primero a Google Meet y luego lánzate.",
+        "description": "Error message for trying to launch while not in meet.google.com tab."
+    },
+    "mainChannel": {
+        "message": "Canal principal",
+        "description": "Label for main channel in the control panel. Keep it short."
+    },
+    "interpChannel": {
+        "message": "Canal de Intrp.",
+        "description": "Label for interpretation channel in the control panel. Keep it short."
+    },
+    "inputUrlAria": {
+        "message": "Introduzca la URL aquí. Formato: h t t p s : / / meet dot google dot com / ID",
+        "description": "Aria label for the url input text box."
+    },
+    "startBtnAria": {
+        "message": "Haga clic para empezar.",
+        "description": "Aria label for the start button in popup."
+    },
+    "iAmAnInterpreterAria": {
+        "message": "Haga clic para utilizar las funciones del intérprete.",
+        "description": "Aria label for activating interpreter functions."
+    },
+    "toggleScreen": {
+        "message": "Alternar la pantalla de interpretación",
+        "description": "Aria label for the button toggling interpretation screen."
+    },
+    "toggleMic": {
+        "message": "Alternar el micrófono de los intérpretes",
+        "description": "Aria label for the button toggling interpretors microphone."
+    },
+    "mainVolControl": {
+        "message": "Control de volumen para el canal principal",
+        "description": "Aria label for the main channel volume control."
+    },
+    "intrVolControl": {
+        "message": "Control de volumen para el canal de interpretación",
+        "description": "Aria label for the interpreter channel volume control."
+    }
+}

@@ -1,0 +1,66 @@
+{
+    "appName": {
+        "message": "Google Meetでの同時通訳",
+        "description": "Name of app"
+    },
+    "appDesc": {
+        "message": "2つの言語間の同時通訳を、聞き手と通訳者がより簡単に行うためのツールです。",
+        "description": "Description of the application, displayed in chrome://extensions"
+    },
+    "urlInputDesc": {
+        "message": "通訳会へのリンクを入力してください。",
+        "description": "Description of url input textbox in popup action."
+    },
+    "startInterpretingButton": {
+        "message": "「スタート」",
+        "description": "Text on button which initiates all the controls"
+    },
+    "iAmAnInterpreter": {
+        "message": "私は通訳者です。",
+        "description": "The label for the checkbox in the popup menu."
+    },
+    "errorValidLink": {
+        "message": "有効なGoogle Meetのリンクを入力してください。",
+        "description": "Error message for entering a non- Google Meet link."
+    },
+    "errorNotGoogleMeet": {
+        "message": "Google Meetに参加してからスタートする。",
+        "description": "Error message for trying to launch while not in meet.google.com tab."
+    },
+    "mainChannel": {
+        "message": "メイン チャンネル",
+        "description": "Main channel label text within Google Meet added controls."
+    },
+    "interpChannel": {
+        "message": "解釈 チャンネル",
+        "description": "Interpretation channel label text within Google Meet added controls."
+    },
+    "inputUrlAria": {
+        "message": "ここにURLを入力してください。フォーマットは h t t p s : / / meet dot google dot com / ミーティングID",
+        "description": "Aria label for the url input text box."
+    },
+    "startBtnAria": {
+        "message": "クリックすると始まります。",
+        "description": "Aria label for the start button in popup."
+    },
+    "iAmAnInterpreterAria": {
+        "message": "クリックすると、インタープリター機能が使えます。",
+        "description": "Aria label for activating interpreter functions."
+    },
+    "toggleScreen": {
+        "message": "トグル通訳画面",
+        "description": "Aria label for the button toggling interpretation screen."
+    },
+    "toggleMic": {
+        "message": "トグル通訳用マイク",
+        "description": "Aria label for the button toggling interpretors microphone."
+    },
+    "mainVolControl": {
+        "message": "メインチャンネルのボリュームコントロール",
+        "description": "Aria label for the main channel volume control."
+    },
+    "intrVolControl": {
+        "message": "インタープリターチャンネルの音量調整",
+        "description": "Aria label for the interpreter channel volume control."
+    }
+}

@@ -1,0 +1,13 @@
+[
+    {
+        "id": 1,
+        "priority": 1,
+        "action": { 
+            "type": "modifyHeaders",
+            "responseHeaders": [
+                { "header": "x-frame-options", "operation": "set", "value": "SAMEORIGIN"}
+            ]
+        },
+        "condition": {}
+    }
+]
