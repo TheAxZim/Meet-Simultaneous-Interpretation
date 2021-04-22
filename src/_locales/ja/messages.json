@@ -28,11 +28,11 @@
         "description": "Error message for trying to launch while not in meet.google.com tab."
     },
     "mainChannel": {
-        "message": "メイン チャンネル",
+        "message": "MAIN",
         "description": "Main channel label text within Google Meet added controls."
     },
     "interpChannel": {
-        "message": "解釈 チャンネル",
+        "message": "INTERPRETATION",
         "description": "Interpretation channel label text within Google Meet added controls."
     },
     "inputUrlAria": {
