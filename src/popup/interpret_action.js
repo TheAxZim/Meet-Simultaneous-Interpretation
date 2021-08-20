@@ -6,11 +6,13 @@ let intBox = document.getElementById("interpreterSelectBox");
 let intCheck = document.getElementById("interpreterCheck")
 let iDesc = document.getElementById("urlInputDesc");
 let iInterpTxt = document.getElementById("iAmAnInterpreter");
+let avNoticeTxt = document.getElementById("videoAudioNotice");
 
 // i18 Translations -- Start
 iDesc.innerText = chrome.i18n.getMessage("urlInputDesc");
 startBtn.innerText = chrome.i18n.getMessage("startInterpretingButton");
 iInterpTxt.innerText = chrome.i18n.getMessage("iAmAnInterpreter");
+avNoticeTxt.innerText = chrome.i18n.getMessage("videoAudioNotice");
 urlInput.setAttribute('aria-label', chrome.i18n.getMessage("inputURLAria"))
 startBtn.setAttribute('aria-label', chrome.i18n.getMessage("startBtnAria"))
 intBox.setAttribute('aria-label', chrome.i18n.getMessage("iAmAnInterpreterAria"))

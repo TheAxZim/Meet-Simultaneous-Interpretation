@@ -55,6 +55,13 @@ label {
     border-bottom: 1px solid black;
 }
 
+#videoAudioNotice {
+  font-size: 10px;
+  font-style: italic;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 #startInterpretation {
     height: 30px;
     width: 80%;

@@ -15,6 +15,10 @@
         "message": "「スタート」",
         "description": "Text on button which initiates all the controls"
     },
+    "videoAudioNotice": {
+      "message": "通訳チャンネルのビデオとマイクは無効になります。",
+      "description": "Displays on popup view on extension. Notifies user that the video/mic will be disabled."
+    },
     "iAmAnInterpreter": {
         "message": "私は通訳者です。",
         "description": "The label for the checkbox in the popup menu."

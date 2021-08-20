@@ -15,6 +15,10 @@
         "message": "Canal d'interprétation ouvert",
         "description": "Text on button which initiates all the controls."
     },
+    "videoAudioNotice": {
+      "message": "La vidéo et le micro seront automatiquement désactivés pour le canal d'interprétation.",
+      "description": "Displays on popup view on extension. Notifies user that the video/mic will be disabled."
+    },
     "iAmAnInterpreter": {
         "message": "Je suis un interprète",
         "description": "The label for the checkbox in the popup menu."

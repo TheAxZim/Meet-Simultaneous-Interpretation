@@ -15,6 +15,10 @@
         "message": "开始",
         "description": "Text on button which initiates all the controls."
     },
+    "videoAudioNotice": {
+      "message": "翻译通道的视频和麦克风将被禁用。",
+      "description": "Displays on popup view on extension. Notifies user that the video/mic will be disabled."
+    },
     "iAmAnInterpreter": {
         "message": "我是口译员",
         "description": "The label for the checkbox in the popup menu."

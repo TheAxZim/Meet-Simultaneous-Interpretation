@@ -15,6 +15,10 @@
         "message": "Начать",
         "description": "Text on button which initiates all the controls."
     },
+    "videoAudioNotice": {
+      "message": "Видео и микрофон будут отключены для канала перевода.",
+      "description": "Displays on popup view on extension. Notifies user that the video/mic will be disabled."
+    },
     "iAmAnInterpreter": {
         "message": "Я переводчик",
         "description": "The label for the checkbox in the popup menu."
