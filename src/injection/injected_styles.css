@@ -2,7 +2,7 @@
     position: absolute;
     width: 700px;
     height: 500px;
-    bottom: 141px;
+    bottom: 161px;
     right: 1px;
     resize: both;
     opacity: 0.95;
@@ -20,12 +20,16 @@
 .controllerContainer {
     position: absolute;
     width: 340px;
-    height: 45px;
+    height: 65px;
     padding: 5px;
-    background-color: rgba(255, 255, 255, 1);
+    /* background-color: rgba(255, 255, 255, 1); */
+    background-color: #3c4043;
+    border-left-color: aliceblue;
+    border-top-color: aliceblue;
     bottom: 85px;
     right: 0px;
     border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
     display: flex;
     align-content: center;
     justify-content: center;
@@ -43,7 +47,7 @@
     margin-right: 5px;
     margin-left: 10px;
     font-weight: 500;
-    color: #3c4043;
+    color: #fff;
     text-align: center;
     font-family: 'Google Sans',Roboto,Arial,sans-serif;
 }
@@ -87,7 +91,7 @@
       -webkit-appearance: none;
       height: 10px;
       cursor: ew-resize;
-      background: #000;
+      background: #FFF;
       box-shadow: -80px 0 0 80px rgb(0, 136, 255);
     }
 }
@@ -97,6 +101,8 @@
 .vol-icon {
     width: 15px;
     margin-left: 15px;
+    fill: white;
+    
 }
 
 /* Mic Styling */
@@ -193,4 +199,13 @@
     height: 15px;
     width: 15px;
     position: relative;
+}
+
+#swapIcon {
+  height: 20px;
+  width: 15px;
+}
+
+#swapIcon:hover {
+  stroke: #4691f6;
 }
