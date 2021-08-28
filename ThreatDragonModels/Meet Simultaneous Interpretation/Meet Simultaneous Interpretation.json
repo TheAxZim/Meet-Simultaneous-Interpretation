@@ -1,0 +1,12 @@
+{
+  "summary": {
+    "title": "Meet Simultaneous Interpretation",
+    "owner": "Azeem Ilyas",
+    "description": "A Chrome extension which hooks into Google Meet and allows iframing and control of another Google Meet. Made for Simultaneous Interpreation so control of volume etc."
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [],
+    "reviewer": "Azeem Ilyas"
+  }
+}
