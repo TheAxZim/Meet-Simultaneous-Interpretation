@@ -394,7 +394,7 @@ function addControls() {
                         <line stroke-width="50" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_6" y2="368.48816" x2="699.76505" y1="556.60323" x1="580.33719" fill="none"/>
                       </g>
                     </svg>
-                    <span class="versionNumber">v1.0.4</span>
+                    <span class="versionNumber">v1.0.5</span>
                 </div>
             </div>
     `;
