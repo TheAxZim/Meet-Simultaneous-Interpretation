@@ -202,7 +202,7 @@ function correctVolumeChangeInterp(event){
 
 function isHomeScreen(){
     // If 'Join' button exists, we are on home screen
-    var target = (document.getElementById("interpreterChannel")).contentWindow.document.getElementsByClassName("Y5sE8d")[0];
+    var target = (document.getElementById("interpreterChannel")).contentWindow.document.getElementsByClassName("KieQAe")[0];
     return target;
 }
 
@@ -254,7 +254,7 @@ function joinMeet(){
     // For some reason, refuses to work without a 5.5s delay.
     // (Unless you have devtools open?! No idea whats happening here)
     setTimeout(() => {
-        var target = (document.getElementById("interpreterChannel")).contentWindow.document.querySelector('.Y5sE8d');
+        var target = (document.getElementById("interpreterChannel")).contentWindow.document.getElementsByClassName("VfPpkd-LgbsSe nCP5yc")[0];
         var muteButton = (document.getElementById("interpreterChannel")).contentWindow.document.getElementsByClassName('U26fgb')[0];
         if (muteButton.dataset.isMuted == "true"){
           console.log("is muted... so continue");
@@ -278,7 +278,7 @@ function clickJoinButton(target) {
 }
 
 function muteMicrophone(){
-    var targetClass = isHomeScreen(FRAME.INTERPRETING) ? "U26fgb" : "VfPpkd-Bz112c-LgbsSe yHy1rc eT1oJ tWDL4c uaILN";
+    var targetClass = isHomeScreen() ? "U26fgb" : "VfPpkd-Bz112c-LgbsSe yHy1rc eT1oJ tWDL4c uaILN";
     var target = (document.getElementById("interpreterChannel")).contentWindow.document.getElementsByClassName(targetClass)[0];
     target.click();
 }
