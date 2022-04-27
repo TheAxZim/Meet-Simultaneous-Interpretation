@@ -209,3 +209,10 @@
 #swapIcon:hover {
   stroke: #4691f6;
 }
+
+.versionNumber {
+  color: #777;
+  position: relative;
+  right: 100px;
+  top: 5px;
+}

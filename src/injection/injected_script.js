@@ -6,6 +6,9 @@ var FRAME = {
 var interpretingChannelURL;
 var interpreterMode;
 
+var MAIN_VOLUME_TRACKER = 1;
+var INTERP_VOLUME_TRACKER = 1;
+
 function removeOldContent(){
     var content = ['interpreterChannel', 'controllerContainer'];
     content.forEach((item, index) => {
@@ -22,11 +25,18 @@ function addIFrame() {
     iFrame.classList.add("interpreterMain");
     iFrame.setAttribute("src", interpretingChannelURL);
     iFrame.style.zIndex = "-1";
-
+    
     iFrame.onload = function() {
-        muteMicrophone(FRAME.INTERPRETING);
-        closeVideo(FRAME.INTERPRETING);
-        joinMeet(FRAME.INTERPRETING);
+      var iFrameDoc = iFrame.contentWindow.document;
+        var setupControls = setInterval(() => {
+          var elem = iFrameDoc.getElementsByClassName("U26fgb")[0];
+          if (elem){
+            muteMicrophone(FRAME.INTERPRETING);
+            closeVideo(FRAME.INTERPRETING);
+            joinMeet(FRAME.INTERPRETING);
+            clearInterval(setupControls);
+          }
+        }, 100);
     };
 
     // Insert iFrame on page
@@ -35,7 +45,10 @@ function addIFrame() {
 
     // Style the sidebar (comments etc) so that it doesn't go under the 
     // controls box
-    addChatWindowObserver();
+    addChatWindowObserver(FRAME.INTERPRETING);
+
+    // add volume observers
+    addVolumeObservers(FRAME.MAIN);
 }
 
 function styleIFrame() {
@@ -155,6 +168,38 @@ function addChatWindowObserver(){
   observer.observe(observedElement, { childList: true, attributes: true, subtree: true });
 }
 
+function addVolumeObservers(frameId) {
+  let mics = (frameId == FRAME.MAIN) ?
+    [...document.getElementsByTagName('audio')] :
+    [...(document.getElementById("interpreterChannel")).contentWindow.document.getElementsByTagName('audio')];
+
+  if (frameId == FRAME.MAIN){
+    mics.forEach(mic => mic.addEventListener("volumechange", correctVolumeChangeMain));
+  } else {
+    mics.forEach(mic => mic.addEventListener("volumechange", correctVolumeChangeInterp));
+  }  
+}
+
+function correctVolumeChangeMain(event){
+  var mic = event.target;
+  if (mic.volume != MAIN_VOLUME_TRACKER) {
+    let newVolume = mic.volume;
+    mic.volume = MAIN_VOLUME_TRACKER;
+    console.log('Meet tried to set the volume to ' + newVolume);
+    console.log('volume was corrected for main channel');
+  }
+}
+
+function correctVolumeChangeInterp(event){
+  var mic = event.target;
+  if (mic.volume != INTERP_VOLUME_TRACKER) {
+    let newVolume = mic.volume;
+    mic.volume = INTERP_VOLUME_TRACKER;
+    console.log('Meet tried to set the volume to ' + newVolume);
+    console.log('Volume was auto-corrected for interpretation channel.');
+  }
+}
+
 function isHomeScreen(){
     // If 'Join' button exists, we are on home screen
     var target = (document.getElementById("interpreterChannel")).contentWindow.document.getElementsByClassName("Y5sE8d")[0];
@@ -205,22 +250,31 @@ function toggleScreen(){
             screen.style.zIndex = "-1";
 }
 
-function joinMeet(frameId){
+function joinMeet(){
     // For some reason, refuses to work without a 5.5s delay.
     // (Unless you have devtools open?! No idea whats happening here)
     setTimeout(() => {
-        var target = (frameId == FRAME.MAIN) ? 
-                document.querySelector(".Y5sE8d") : 
-                (document.getElementById("interpreterChannel")).contentWindow.document.querySelector('.Y5sE8d');
-        target.click();
-        if (frameId == FRAME.INTERPRETING) {
-            isMutedUpdate(1000);
-            hideLoadingIcons();
-            if (interpreterMode) { setTimeout(showInterpMicSwitch, 2000); }
-            // setTimeout(showScreenToggleSwitch, 2000);
-            styleIFrame();
+        var target = (document.getElementById("interpreterChannel")).contentWindow.document.querySelector('.Y5sE8d');
+        var muteButton = (document.getElementById("interpreterChannel")).contentWindow.document.getElementsByClassName('U26fgb')[0];
+        if (muteButton.dataset.isMuted == "true"){
+          console.log("is muted... so continue");
+          clickJoinButton(target);
+        } else {
+          console.log('Not Muted, fixing...');
+          muteMicrophone();
+          closeVideo(FRAME.INTERPRETING);
+          clickJoinButton(target);
         }
     }, 5500);
+}
+
+function clickJoinButton(target) {
+  target.click();
+  isMutedUpdate(1000);
+  hideLoadingIcons();
+  if (interpreterMode) { setTimeout(showInterpMicSwitch, 2000); }
+  styleIFrame();
+  addVolumeObservers(FRAME.INTERPRETING);
 }
 
 function muteMicrophone(){
@@ -242,6 +296,12 @@ function modifyAudio(frameId, value) {
             [...document.getElementsByTagName('audio')] :
             [...(document.getElementById("interpreterChannel")).contentWindow.document.getElementsByTagName('audio')];
     audios.forEach(audio => audio.volume = value);
+
+    if (frameId == FRAME.MAIN) {
+      MAIN_VOLUME_TRACKER = value;
+    } else {
+      INTERP_VOLUME_TRACKER = value;
+    }
 }
 
 function addControls() {
@@ -334,6 +394,7 @@ function addControls() {
                         <line stroke-width="50" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_6" y2="368.48816" x2="699.76505" y1="556.60323" x1="580.33719" fill="none"/>
                       </g>
                     </svg>
+                    <span class="versionNumber">v1.0.4</span>
                 </div>
             </div>
     `;
