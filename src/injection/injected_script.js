@@ -9,11 +9,11 @@ var interpreterMode;
 var MAIN_VOLUME_TRACKER = 1;
 var INTERP_VOLUME_TRACKER = 1;
 
-function removeOldContent(){
+function removeOldContent() {
     var content = ['interpreterChannel', 'controllerContainer'];
     content.forEach((item, index) => {
         var elem = document.getElementById(item);
-        if (elem != null){
+        if (elem != null) {
             elem.remove();
         }
     });
@@ -25,17 +25,17 @@ function addIFrame() {
     iFrame.classList.add("interpreterMain");
     iFrame.setAttribute("src", interpretingChannelURL);
     iFrame.style.zIndex = "-1";
-    
-    iFrame.onload = function() {
-      var iFrameDoc = iFrame.contentWindow.document;
+
+    iFrame.onload = function () {
+        var iFrameDoc = iFrame.contentWindow.document;
         var setupControls = setInterval(() => {
-          var elem = iFrameDoc.getElementsByClassName("U26fgb")[0];
-          if (elem){
-            muteMicrophone(FRAME.INTERPRETING);
-            closeVideo(FRAME.INTERPRETING);
-            joinMeet(FRAME.INTERPRETING);
-            clearInterval(setupControls);
-          }
+            var elem = iFrameDoc.getElementsByClassName("U26fgb")[0];
+            if (elem) {
+                muteMicrophone(FRAME.INTERPRETING);
+                closeVideo(FRAME.INTERPRETING);
+                joinMeet(FRAME.INTERPRETING);
+                clearInterval(setupControls);
+            }
         }, 100);
     };
 
@@ -54,30 +54,30 @@ function addIFrame() {
 function styleIFrame() {
     var iDoc = (document.getElementById("interpreterChannel")).contentWindow.document;
 
-    function removeElementFromIFrame(qSelector, hardRemove=false){
+    function removeElementFromIFrame(qSelector, hardRemove = false) {
         var removeItem = setInterval(() => {
             var elem = iDoc.querySelector(qSelector);
-            if (elem){
+            if (elem) {
                 hardRemove ? elem.remove() : elem.style.display = 'none';
                 clearInterval(removeItem);
             }
         }, 500);
     }
 
-    function removeElementFromIFrameByClassName(cSelector, instance, hardRemove=false){
-      var removeItem = setInterval(() => {
-        var elem = iDoc.getElementsByClassName(cSelector)[instance];
-        if (elem){
-            hardRemove ? elem.remove() : elem.style.display = 'none';
-            clearInterval(removeItem);
-        }
-    }, 500);
+    function removeElementFromIFrameByClassName(cSelector, instance, hardRemove = false) {
+        var removeItem = setInterval(() => {
+            var elem = iDoc.getElementsByClassName(cSelector)[instance];
+            if (elem) {
+                hardRemove ? elem.remove() : elem.style.display = 'none';
+                clearInterval(removeItem);
+            }
+        }, 500);
     }
 
     function makeInvisible(qSelector) {
         var hideItem = setInterval(() => {
             var elem = iDoc.querySelector(qSelector);
-            if (elem){
+            if (elem) {
                 elem.style.visibility = 'hidden';
                 clearInterval(hideItem);
             }
@@ -85,19 +85,19 @@ function styleIFrame() {
     };
 
     function makeInvisibleByClassName(cSelector, cIndex) {
-      var hideItem = setInterval(() => {
-          var elem = iDoc.getElementsByClassName(cSelector)[cIndex];
-          if (elem){
-              elem.style.visibility = 'hidden';
-              clearInterval(hideItem);
-          }
-      }, 500);
+        var hideItem = setInterval(() => {
+            var elem = iDoc.getElementsByClassName(cSelector)[cIndex];
+            if (elem) {
+                elem.style.visibility = 'hidden';
+                clearInterval(hideItem);
+            }
+        }, 500);
     };
 
     function setHeight50(qSelector, height) {
         var editHeight = setInterval(() => {
             var elem = iDoc.querySelector(qSelector);
-            if (elem){
+            if (elem) {
                 elem.style.height = '50px';
                 clearInterval(editHeight);
             }
@@ -113,7 +113,7 @@ function styleIFrame() {
     var removeMargin = setInterval(() => {
         var elems = iDoc.querySelectorAll('.sUZ4id, .zCbbgf');
         elems.forEach((e) => {
-            if (e){
+            if (e) {
                 e.style.margin = '0 8px';
             }
             clearInterval(removeMargin)
@@ -134,10 +134,10 @@ function styleIFrame() {
     removeElementFromIFrameByClassName('VfPpkd-Bz112c-LgbsSe yHy1rc eT1oJ JsuyRc boDUxc', 3) // < Activities Icon
 }
 
-function addEndCallObserver(){
+function addEndCallObserver() {
     var observedElement = document.getElementsByClassName("U26fgb")[2];
 
-    var observer = new MutationObserver(function(mutations) {
+    var observer = new MutationObserver(function (mutations) {
         var endChecker = setInterval(() => {
             var endElements = document.querySelector('.qCHScd');
             if (endElements) {
@@ -151,62 +151,62 @@ function addEndCallObserver(){
     observer.observe(observedElement, { childList: true, attributes: true, subtree: true });
 }
 
-function addChatWindowObserver(){
-  var observedElement = document.querySelector(".crqnQb");
+function addChatWindowObserver() {
+    var observedElement = document.querySelector(".crqnQb");
 
-  var observer = new MutationObserver(function(mutations) {
-      var chatChecker = setInterval(() => {
-          var chatElement = document.querySelector('.BC4V9b');
-          if (chatElement) {
-              clearInterval(chatChecker);
-              observer.disconnect();
-              (document.querySelector('.BC4V9b')).style.marginBottom='90px';
-          }
-      }, 500);
-  });
+    var observer = new MutationObserver(function (mutations) {
+        var chatChecker = setInterval(() => {
+            var chatElement = document.querySelector('.BC4V9b');
+            if (chatElement) {
+                clearInterval(chatChecker);
+                observer.disconnect();
+                (document.querySelector('.BC4V9b')).style.marginBottom = '90px';
+            }
+        }, 500);
+    });
 
-  observer.observe(observedElement, { childList: true, attributes: true, subtree: true });
+    observer.observe(observedElement, { childList: true, attributes: true, subtree: true });
 }
 
 function addVolumeObservers(frameId) {
-  let mics = (frameId == FRAME.MAIN) ?
-    [...document.getElementsByTagName('audio')] :
-    [...(document.getElementById("interpreterChannel")).contentWindow.document.getElementsByTagName('audio')];
+    let mics = (frameId == FRAME.MAIN) ?
+        [...document.getElementsByTagName('audio')] :
+        [...(document.getElementById("interpreterChannel")).contentWindow.document.getElementsByTagName('audio')];
 
-  if (frameId == FRAME.MAIN){
-    mics.forEach(mic => mic.addEventListener("volumechange", correctVolumeChangeMain));
-  } else {
-    mics.forEach(mic => mic.addEventListener("volumechange", correctVolumeChangeInterp));
-  }  
+    if (frameId == FRAME.MAIN) {
+        mics.forEach(mic => mic.addEventListener("volumechange", correctVolumeChangeMain));
+    } else {
+        mics.forEach(mic => mic.addEventListener("volumechange", correctVolumeChangeInterp));
+    }
 }
 
-function correctVolumeChangeMain(event){
-  var mic = event.target;
-  if (mic.volume != MAIN_VOLUME_TRACKER) {
-    let newVolume = mic.volume;
-    mic.volume = MAIN_VOLUME_TRACKER;
-    console.log('Meet tried to set the volume to ' + newVolume);
-    console.log('volume was corrected for main channel');
-  }
+function correctVolumeChangeMain(event) {
+    var mic = event.target;
+    if (mic.volume != MAIN_VOLUME_TRACKER) {
+        let newVolume = mic.volume;
+        mic.volume = MAIN_VOLUME_TRACKER;
+        console.log('Meet tried to set the volume to ' + newVolume);
+        console.log('volume was corrected for main channel');
+    }
 }
 
-function correctVolumeChangeInterp(event){
-  var mic = event.target;
-  if (mic.volume != INTERP_VOLUME_TRACKER) {
-    let newVolume = mic.volume;
-    mic.volume = INTERP_VOLUME_TRACKER;
-    console.log('Meet tried to set the volume to ' + newVolume);
-    console.log('Volume was auto-corrected for interpretation channel.');
-  }
+function correctVolumeChangeInterp(event) {
+    var mic = event.target;
+    if (mic.volume != INTERP_VOLUME_TRACKER) {
+        let newVolume = mic.volume;
+        mic.volume = INTERP_VOLUME_TRACKER;
+        console.log('Meet tried to set the volume to ' + newVolume);
+        console.log('Volume was auto-corrected for interpretation channel.');
+    }
 }
 
-function isHomeScreen(){
+function isHomeScreen() {
     // If 'Join' button exists, we are on home screen
     var target = (document.getElementById("interpreterChannel")).contentWindow.document.getElementsByClassName("KieQAe")[0];
     return target;
 }
 
-function isMutedUpdate(delay = 500){
+function isMutedUpdate(delay = 500) {
     setTimeout(() => {
         var muteBtn = (document.getElementById("interpreterChannel")).contentWindow.document.getElementsByClassName("VfPpkd-Bz112c-LgbsSe yHy1rc eT1oJ tWDL4c uaILN")[0];
         isMuted = muteBtn.classList.contains("FTMc0c");
@@ -216,7 +216,7 @@ function isMutedUpdate(delay = 500){
 
 function updateMicBtn(isMuted, micId) {
     var micBtn = document.getElementById(micId);
-    if (isMuted){
+    if (isMuted) {
         micBtn.style.backgroundColor = "#d93025";
         micBtn.querySelector("svg").style.fill = "#fff";
     } else {
@@ -225,59 +225,59 @@ function updateMicBtn(isMuted, micId) {
     }
 }
 
-function showInterpMicSwitch(){
+function showInterpMicSwitch() {
     var micSwitchInterp = document.getElementById('micSwitchInterp');
-    micSwitchInterp.style.display="block";
+    micSwitchInterp.style.display = "block";
 }
 
-function showScreenToggleSwitch(){
+function showScreenToggleSwitch() {
     var screenToggleSwitch = document.getElementById('screenToggle');
-    screenToggleSwitch.style.display="block";
+    screenToggleSwitch.style.display = "block";
 }
 
-function hideLoadingIcons(){
+function hideLoadingIcons() {
     var loadingIcons = document.querySelectorAll('.loading-icon');
     loadingIcons.forEach((elem) => {
         elem.remove();
     });
 }
 
-function toggleScreen(){
+function toggleScreen() {
     var screen = document.getElementById("interpreterChannel");
     var screenZ = screen.style.zIndex;
-    screenZ == "-1" ? 
-            screen.style.zIndex = "100" :
-            screen.style.zIndex = "-1";
+    screenZ == "-1" ?
+        screen.style.zIndex = "100" :
+        screen.style.zIndex = "-1";
 }
 
-function joinMeet(){
+function joinMeet() {
     // For some reason, refuses to work without a 5.5s delay.
     // (Unless you have devtools open?! No idea whats happening here)
     setTimeout(() => {
-        var target = (document.getElementById("interpreterChannel")).contentWindow.document.getElementsByClassName("VfPpkd-LgbsSe nCP5yc")[0];
+        var target = (document.getElementById("interpreterChannel")).contentWindow.document.getElementsByClassName("VfPpkd-LgbsSe nCP5yc")[2];
         var muteButton = (document.getElementById("interpreterChannel")).contentWindow.document.getElementsByClassName('U26fgb')[0];
-        if (muteButton.dataset.isMuted == "true"){
-          console.log("is muted... so continue");
-          clickJoinButton(target);
+        if (muteButton.dataset.isMuted == "true") {
+            console.log("is muted... so continue");
+            clickJoinButton(target);
         } else {
-          console.log('Not Muted, fixing...');
-          muteMicrophone();
-          closeVideo(FRAME.INTERPRETING);
-          clickJoinButton(target);
+            console.log('Not Muted, fixing...');
+            muteMicrophone();
+            closeVideo(FRAME.INTERPRETING);
+            clickJoinButton(target);
         }
     }, 5500);
 }
 
 function clickJoinButton(target) {
-  target.click();
-  isMutedUpdate(1000);
-  hideLoadingIcons();
-  if (interpreterMode) { setTimeout(showInterpMicSwitch, 2000); }
-  styleIFrame();
-  addVolumeObservers(FRAME.INTERPRETING);
+    target.click();
+    isMutedUpdate(1000);
+    hideLoadingIcons();
+    if (interpreterMode) { setTimeout(showInterpMicSwitch, 2000); }
+    styleIFrame();
+    addVolumeObservers(FRAME.INTERPRETING);
 }
 
-function muteMicrophone(){
+function muteMicrophone() {
     var targetClass = isHomeScreen() ? "U26fgb" : "VfPpkd-Bz112c-LgbsSe yHy1rc eT1oJ tWDL4c uaILN";
     var target = (document.getElementById("interpreterChannel")).contentWindow.document.getElementsByClassName(targetClass)[0];
     target.click();
@@ -285,22 +285,22 @@ function muteMicrophone(){
 
 function closeVideo(frameId) {
     var index = isHomeScreen(frameId) ? 1 : 3;
-    var target = (frameId == FRAME.MAIN) ? 
-                document.getElementsByClassName("U26fgb")[index] : 
-                (document.getElementById("interpreterChannel")).contentWindow.document.getElementsByClassName("U26fgb")[index];
+    var target = (frameId == FRAME.MAIN) ?
+        document.getElementsByClassName("U26fgb")[index] :
+        (document.getElementById("interpreterChannel")).contentWindow.document.getElementsByClassName("U26fgb")[index];
     target.click();
 }
 
 function modifyAudio(frameId, value) {
     let audios = (frameId == FRAME.MAIN) ?
-            [...document.getElementsByTagName('audio')] :
-            [...(document.getElementById("interpreterChannel")).contentWindow.document.getElementsByTagName('audio')];
+        [...document.getElementsByTagName('audio')] :
+        [...(document.getElementById("interpreterChannel")).contentWindow.document.getElementsByTagName('audio')];
     audios.forEach(audio => audio.volume = value);
 
     if (frameId == FRAME.MAIN) {
-      MAIN_VOLUME_TRACKER = value;
+        MAIN_VOLUME_TRACKER = value;
     } else {
-      INTERP_VOLUME_TRACKER = value;
+        INTERP_VOLUME_TRACKER = value;
     }
 }
 
@@ -416,33 +416,33 @@ function addControls() {
     volIconMain.addEventListener("click", () => {
         modifyAudio(FRAME.MAIN, 0)
         volSliderMain.value = 0;
-        volIconMain.style.fill='red';
+        volIconMain.style.fill = 'red';
     });
 
     var volIconInterp = document.getElementById('volIconInterp');
     volIconInterp.addEventListener("click", () => {
         modifyAudio(FRAME.INTERPRETING, 0)
         volSliderInterp.value = 0;
-        volIconInterp.style.fill='red';
+        volIconInterp.style.fill = 'red';
     });
 
     var volSliderMain = document.getElementById('volSliderMain');
     volSliderMain.addEventListener("change", () => {
         modifyAudio(FRAME.MAIN, (volSliderMain.value / 100))
-        if (volSliderMain.value > 0){
-          volIconMain.style.fill='white';
+        if (volSliderMain.value > 0) {
+            volIconMain.style.fill = 'white';
         } else {
-          volIconMain.style.fill='red'
+            volIconMain.style.fill = 'red'
         }
     });
 
     var volSliderInterp = document.getElementById('volSliderInterp');
     volSliderInterp.addEventListener("change", () => {
         modifyAudio(FRAME.INTERPRETING, (volSliderInterp.value / 100))
-        if (volSliderInterp.value > 0){
-          volIconInterp.style.fill='white';
+        if (volSliderInterp.value > 0) {
+            volIconInterp.style.fill = 'white';
         } else {
-          volIconInterp.style.fill='red'
+            volIconInterp.style.fill = 'red'
         }
     });
 
@@ -465,7 +465,7 @@ function addControls() {
 /*ENTRYPOINT*/
 /************/
 
-function setUpInterpretation(url, iMode){
+function setUpInterpretation(url, iMode) {
     interpretingChannelURL = url;
     interpreterMode = iMode;
     console.log("Setting Up Interpretation tool...")
@@ -475,8 +475,8 @@ function setUpInterpretation(url, iMode){
     addControls()
 }
 
-chrome.storage.sync.get("interpreterURL", ({interpreterURL}) => {
-    chrome.storage.sync.get("isInterpreter", ({isInterpreter}) => {
+chrome.storage.sync.get("interpreterURL", ({ interpreterURL }) => {
+    chrome.storage.sync.get("isInterpreter", ({ isInterpreter }) => {
         setUpInterpretation(interpreterURL, isInterpreter);
     });
 });
