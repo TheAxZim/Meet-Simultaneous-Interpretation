@@ -1,11 +1,11 @@
 {
     "name": "__MSG_appName__",
     "description": "__MSG_appDesc__",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "manifest_version": 3,
     "default_locale": "en",
     "permissions": [
-        "storage", 
+        "storage",
         "activeTab",
         "scripting",
         "declarativeNetRequest"
@@ -14,11 +14,13 @@
         "*://meet.google.com/*"
     ],
     "declarative_net_request": {
-        "rule_resources": [{
-            "id": "filter_security_headers",
-            "enabled": true,
-            "path": "header_rules.json"
-        }]
+        "rule_resources": [
+            {
+                "id": "filter_security_headers",
+                "enabled": true,
+                "path": "header_rules.json"
+            }
+        ]
     },
     "action": {
         "default_title": "Launch Interpretation Channel",
